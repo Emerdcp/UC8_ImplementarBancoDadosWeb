@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tela de Endereço</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="container" role="region" aria-labelledby="title">
+    <header>
+      <h1 id="title">Cadastro de Endereço</h1>
+      <span class="badge">Brasil • CEP com ViaCEP</span>
+    </header>
+
+    <form id="formEndereco" novalidate>
+      <div class="card" aria-label="Dados de entrega">
+        <div class="row">
+          <div class="field third">
+            <label for="cep">CEP <span class="req">*</span></label>
+            <input id="cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" required />
+            <div class="help">Digite e saia do campo para buscar automaticamente.</div>
+            <div class="error" id="cepErro">CEP inválido ou não encontrado.</div>
+          </div>
+          <div class="field eight">
+            <label for="logradouro">Logradouro <span class="req">*</span></label>
+            <input id="logradouro" name="logradouro" type="text" placeholder="Rua, Avenida, Travessa…" required />
+          </div>
+          <div class="field two">
+            <label for="numero">Número <span class="req">*</span></label>
+            <input id="numero" name="numero" type="text" placeholder="123" required />
+          </div>
+          <div class="field third">
+            <label for="complemento">Complemento</label>
+            <input id="complemento" name="complemento" type="text" placeholder="Apto, Bloco, Casa…" />
+          </div>
+          <div class="field third">
+            <label for="bairro">Bairro <span class="req">*</span></label>
+            <input id="bairro" name="bairro" type="text" required />
+          </div>
+          <div class="field half">
+            <label for="cidade">Cidade <span class="req">*</span></label>
+            <input id="cidade" name="cidade" type="text" required />
+          </div>
+          <div class="field two">
+            <label for="uf">UF <span class="req">*</span></label>
+            <input id="uf" name="uf" type="text" placeholder="PR" maxlength="2" required />
+          </div>
+          <div class="field third">
+            <label for="pais">País <span class="req">*</span></label>
+            <select id="pais" name="pais" required>
+              <option value="">Selecione…</option>
+              <option value="Brasil" selected>Brasil</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Chile">Chile</option>
+              <option value="Uruguai">Uruguai</option>
+              <option value="Paraguai">Paraguai</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="referencia">Ponto de referência</label>
+            <input id="referencia" name="referencia" type="text" placeholder="Perto de…" />
+          </div>
+          <div class="field full">
+            <div class="bar">
+              <input type="checkbox" id="padrao" name="padrao" />
+              <label for="padrao">Definir como endereço padrão</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="reset" class="btn-ghost">Limpar</button>
+        <button type="submit" class="btn-primary">Salvar endereço</button>
+      </div>
+      <div class="footer-note">Campos com <span class="req">*</span> são obrigatórios.</div>
+    </form>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
