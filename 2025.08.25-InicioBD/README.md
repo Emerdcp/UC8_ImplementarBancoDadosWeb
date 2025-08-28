@@ -58,6 +58,18 @@ CREATE DATABASE BANCOCONFIGURADO
 DEFAULT CHARACTER SET utf8
 DEFAULT COLLATE utf8_general_ci;
 ```
+## Criação de tabela
+
+```sql
+CREATE TABLE PESSOAS(
+    NOME VARCHAR(30) NOT NULL, 
+    NASCIMENTO DATE, 
+    SEXO ENUM('M', 'F'), 
+    PESO DECIMAL(5,2), 
+    ALTURA DECIMAL(3,2), 
+    NACIONALIDADE VARCHAR(20) DEFAULT 'BRASIL' 
+); DEFAUL CHARSET = utf8;
+```
 
 ## Tipos de Dados
 
@@ -144,7 +156,7 @@ INSERT INTO ALUNOS (ALUNOS_NOME, ALUNOS_IDADE, ALUNOS_CURSO) VALUES ("Eduardo", 
 INSERT INTO ALUNOS (ALUNOS_NOME, ALUNOS_IDADE, ALUNOS_CURSO) VALUES ("Kadu", 8, "Estudante");
 INSERT INTO ALUNOS (ALUNOS_NOME, ALUNOS_IDADE, ALUNOS_CURSO) VALUES ("Karina", 36, "Corte e Costura");
 
-INSERT INTO ALUNOS (ALUNOS_NOME, ALUNOS_IDADE, ALUNOS_CURSO) VALUES ("Emerson", 37, "Desenvolvedor Front End").
+INSERT INTO ALUNOS (ALUNOS_NOME, ALUNOS_IDADE, ALUNOS_CURSO) VALUES ("Emerson", 37, "Desenvolvedor Front End"),
 ("Luzia", 61, "Curos de Propaganda"),
 ("Gabriel", 41,"Curso de Corretor")
 ```
@@ -165,3 +177,60 @@ SELECT ALUNOS_NOME, ALUNOS_IDADE FROM ALUNOS
 ```sql
 SELECT * FROM ALUNOS WHERE ALUNOS_IDADE >= 18
 ```
+
+## Para Adiconionar uma coluna Tebela
+
+Para Adicionar um coluna
+
+```sql
+ALTER TABLE PESSOA ADD COLUMM PROFISSAO VARCHAR(10);
+```
+
+## Para Deletar uma coluna Tebela
+
+Para Deletar um coluna
+
+```sql
+ALTER TABLE PESSOA DROP COLUMM PROFISSAO VARCHAR(10);
+```
+
+## Para Adiconionar uma coluna do lado na Tebela
+
+Para Adicionar um coluna do lado de uma oputra coluna existente
+
+```sql
+ALTER TABLE PESSOA ADD COLUMM PROFISSAO VARCHAR(10) AFTER NOME;
+```
+Para Adicionar um coluna por primeiro
+```sql
+ALTER TABLE PESSOA ADD COLUMM CODIGO INT FIRST;
+```
+
+
+
+
+
+
+## Exemplos
+```sql
+CREATE TABLE PESSOA(
+    NOME VARCHAR(30) NOT NULL, 
+    NASCIMENTO DATE, 
+    SEXO ENUM('M', 'F'), 
+    PESO DECIMAL(5,2), 
+    ALTURA DECIMAL(3,2), 
+    NACIONALIDADE VARCHAR(20) DEFAULT 'BRASIL' 
+); DEFAUL CHARSET = utf8;
+```
+
+```sql
+INSERT INTO PESSOA (NOME, NASCIMENTO, SEXO, PESO, ALTURA, NACIONALIDADE) VALUES 
+('Godofredo', '1984-01-02', 'M', 78.50, 1.83, 'Brasil'),
+('Maria', '1999-12-30', 'F', 55.20, 1.65, 'Alemanha'),
+('Marinalva', '1965-04-11','F', 77.40, 1.71, 'Brasil'),
+('Endrik', '1995-03-11', 'M', 80.10, 1.77, 'Portugal'),
+('Ana Clara', '2005-04-07', 'F', 57.40, 1.61, 'Brasil')
+('Robert', '1975-04-11', 'M', 75.20, 1.78, 'Brasil')
+```
+
+![alt text](image.png)
