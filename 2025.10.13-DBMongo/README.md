@@ -214,6 +214,23 @@ db.aluno.find(
 )
 ```
 
+- Para Ocutação do campos dos documentos, manter sempre o 0 para ficar oculta.
+```sql
+db.aluno.find({nome: "Henrique"},
+    {idade: 0}
+)
+```
+
+- Para Organização dos campos, 1 crescendo e descrencente
+```sql
+db.aluno.find().sort({idade, 1})
+```
+
+- Para trazer o limite, e a organização dos campos, 1 crescendo e descrencente
+```sql
+db.aluno.find().limit(3).sort({idade, -1})
+```
+
 
 ## Para remover mensagem de quando executado.
 
