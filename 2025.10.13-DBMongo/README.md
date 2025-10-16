@@ -117,7 +117,7 @@ db.alunos.insertOne({
 db.sala.find({curso: "TST"})
 ```
 
-- Para realizar consultas de masi e um item
+- Para realizar consultas de mais e um item
 ```sql
 db.sala.find({
      $and: [
@@ -127,12 +127,104 @@ db.sala.find({
 })
 ```
 
-// Produto menos que
+- Produto menos que
+```sql
 db.produtos.find({
     preco: { $lt: 500 }
 })
+```
 
-// Menor ou igual 
+- Menor ou igual 
+```sql
 db.produtos.find({
     estoque: { $lte: 10 }
 })
+```
+
+- Selecionar um tipo unico.
+```sql
+db.fornecedor.find({
+     tipoProduto: "Eletrônicos"
+})
+``` 
+
+- Maior que o número desejado
+```sql
+db.vendas.find({
+     db.vendas: {&gt: 1000}
+})
+``` 
+
+- Maior e igual ao número desejado
+```sql
+db.vendas.find({
+     db.vendas: {&gt: 1000}
+})
+``` 
+
+- Para fazer atualização, upadate
+```sql
+db.sala.renameCollection("aluno")
+```
+
+- Para fazer atualização de um único documentos
+```sql
+db.aluno.updateOne(
+    {nome: "Gabriel"},      //Vao procurando nome
+    {$set: {curso: "TII"}} 
+)
+
+db.aluno.find()
+```
+
+- Para fazer atualização vários documentos
+```sql
+db.aluno.updateMany(
+    {nome: "Gabriel"},      //Vao procurando nome
+    {$set: {curso: "TII"}} 
+)
+
+db.aluno.find()
+```
+
+- Para consultar um documento em por ID
+```sql
+db.aluno.find({
+    _id: ObjectId('68f03b1a6e901d871fd2ab30')
+})
+```
+
+- Para excluir um documento
+```sql
+db.aluno.updateOne(
+    {_id: ObjectId('68f03b1a6e901d871fd2ab30')},
+    {$unset: {idade: ''}},
+)
+```
+
+- Para Atualizar o nome de do ducumento
+```sql
+db.aluno.updateOne(
+    { _id: ObjectId('68f03b1a6e901d871fd2ab30')},
+    {$rename: {'cuso' : 'curso'}}
+)
+
+db.aluno.find(
+    { _id: ObjectId('68f03b1a6e901d871fd2ab30')}
+)
+```
+
+
+## Para remover mensagem de quando executado.
+
+da um control + Shift mais P
+
+colocar o comando setting.josn e dar um enter
+
+![alt text](image-9.png)
+
+Colocar o campo na extensão.
+
+"mdb.confirmRunAll":false
+
+![alt text](image-10.png)
